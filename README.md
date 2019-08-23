@@ -33,7 +33,7 @@ npm run server  # http://localhost:5000
 npm run client  # http://localhost:3000
 ```
 
-### Mongo connection and JWT
+## Mongo connection and JWT
 
 The MongoDB URI and jwtSecret has been set temporarily in /config/default.json file to ensure a proper demo of this project running on client and will be removed later.
 
