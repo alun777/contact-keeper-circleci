@@ -9,7 +9,8 @@
     "client": "npm start --prefix client",
     "client-install": "npm install --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
+    "analyze": "source-map-explorer 'client/build/static/js/*.js'"
   },
   "keywords": [],
   "author": "",
@@ -20,7 +21,8 @@
     "express": "^4.17.1",
     "express-validator": "^6.1.1",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.6.9"
+    "mongoose": "^5.6.9",
+    "source-map-explorer": "^2.0.1"
   },
   "devDependencies": {
     "concurrently": "^4.1.2",
