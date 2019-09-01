@@ -14,6 +14,7 @@ import AlertState from './context/alert/AlterState';
 import setAuthToken from './utils/setAuthToken';
 
 import './App.css';
+import 'semantic-ui-css/semantic.min.css';
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);

@@ -1,14 +1,19 @@
 import React, { useContext } from 'react';
 import AlertContext from '../../context/alert/alertContext';
 
+import { Message, Icon } from 'semantic-ui-react';
+
 const Alerts = () => {
   const alertContext = useContext(AlertContext);
 
   return (
     alertContext.alerts.length > 0 &&
     alertContext.alerts.map(alert => (
-      <div key={alert.id} className={`alert alert-${alert.type}`}>
-        <i className='fas fa-info-circle' /> {alert.message}
+      <div key={alert.id}>
+        <Message error header='Something wrong...'>
+          <Icon name='warning circle' />
+          {alert.message}
+        </Message>
       </div>
     ))
   );

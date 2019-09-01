@@ -1,6 +1,14 @@
 import React, { useState, useContext, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import AuthContext from '../../context/auth/authContext';
 import AlertContext from '../../context/alert/alertContext';
+import styled from 'styled-components';
+
+import { Button, Checkbox, Form, Header } from 'semantic-ui-react';
+
+const Span = styled.span`
+  margin: 0 0.5rem;
+`;
 
 const Login = props => {
   const alertContext = useContext(AlertContext);
@@ -44,29 +52,37 @@ const Login = props => {
 
   return (
     <div className='form-container'>
-      <h1>
-        Account <span className='text-primary'>Login</span>
-      </h1>
-      <form onSubmit={onSubmit}>
-        <div className='form-group'>
-          <label htmlFor='email'>Email Address</label>
-          <input type='email' name='email' value={email} onChange={onChange} />
-        </div>
-        <div className='form-group'>
-          <label htmlFor='password'>Password</label>
+      <Header as='h1'>Account Login</Header>
+      <Form onSubmit={onSubmit}>
+        <Form.Field>
+          <label>Email Address</label>
           <input
+            placeholder='Email Address'
+            type='email'
+            name='email'
+            value={email}
+            onChange={onChange}
+          />
+        </Form.Field>
+        <Form.Field>
+          <label>Password</label>
+          <input
+            placeholder='Password'
             type='password'
             name='password'
             value={password}
             onChange={onChange}
           />
-        </div>
-        <input
-          type='submit'
-          value='Login'
-          className='btn btn-primary btn-block'
-        />
-      </form>
+        </Form.Field>
+        <Form.Field>
+          <Checkbox label='I agree to the Terms and Conditions' />
+        </Form.Field>
+        <Button type='submit'>Login</Button>
+        <Span>or</Span>
+        <Button as={Link} to='/register'>
+          Login
+        </Button>
+      </Form>
     </div>
   );
 };

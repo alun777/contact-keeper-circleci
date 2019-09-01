@@ -3,6 +3,13 @@ import Contacts from '../contacts/Contacts';
 import ContactForm from '../contacts/ContactForm';
 import ContactFilter from '../contacts/ContactFilter';
 import AuthContext from '../../context/auth/authContext';
+import styled from 'styled-components';
+
+const Div = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 2rem;
+`;
 
 const Home = () => {
   const authContext = useContext(AuthContext);
@@ -13,7 +20,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div className='grid-2'>
+    <Div>
       <div>
         <ContactForm />
       </div>
@@ -21,7 +28,7 @@ const Home = () => {
         <ContactFilter />
         <Contacts />
       </div>
-    </div>
+    </Div>
   );
 };
 

@@ -2,6 +2,8 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import ContactContext from '../../context/contact/contactContext';
 
+import { Button, Card, Label } from 'semantic-ui-react';
+
 const ContactItem = ({ contact }) => {
   const contactContext = useContext(ContactContext);
   const { deleteContact, setCurrent, clearCurrent } = contactContext;
@@ -14,42 +16,45 @@ const ContactItem = ({ contact }) => {
   };
 
   return (
-    <div className='card bg-light'>
-      <h3 className='text-primary text-left'>
-        {name}{' '}
-        <span
-          style={{ float: 'right' }}
-          className={
-            'badge ' +
-            (type === 'professional' ? 'badge-success' : 'badge-primary')
-          }
-        >
-          {type.charAt(0).toUpperCase() + type.slice(1)}
-        </span>
-      </h3>
-      <ul className='list'>
-        {email && (
-          <li>
-            <i className='fas fa-envelope-open' /> {email}
-          </li>
-        )}
-        {phone && (
-          <li>
-            <i className='fas fa-phone' /> {phone}
-          </li>
-        )}
-      </ul>
-      <p>
-        <button
-          className='btn btn-dark btn-sm'
-          onClick={() => setCurrent(contact)}
-        >
-          Edit
-        </button>
-        <button className='btn btn-danger btn-sm' onClick={onDelete}>
-          Delete
-        </button>
-      </p>
+    <div>
+      <Card.Group>
+        <Card fluid>
+          <Card.Content>
+            <Card.Header></Card.Header>
+            <Label color='blue' image size='large'>
+              {name}
+              <Label.Detail>
+                {type.charAt(0).toUpperCase() + type.slice(1)}
+              </Label.Detail>
+            </Label>
+
+            <Card.Description>
+              <ul className='list' style={{ margin: '1rem 0 0 0.3rem' }}>
+                {email && (
+                  <li>
+                    <i className='fas fa-envelope-open' /> {email}
+                  </li>
+                )}
+                {phone && (
+                  <li>
+                    <i className='fas fa-phone' /> {phone}
+                  </li>
+                )}
+              </ul>
+            </Card.Description>
+          </Card.Content>
+          <Card.Content extra>
+            <div className='ui two buttons mini'>
+              <Button basic color='green' onClick={() => setCurrent(contact)}>
+                Edit
+              </Button>
+              <Button basic color='red' onClick={onDelete}>
+                Delete
+              </Button>
+            </div>
+          </Card.Content>
+        </Card>
+      </Card.Group>
     </div>
   );
 };
