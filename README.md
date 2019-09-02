@@ -8,6 +8,7 @@ Stack:
 -  JWT authentication
 -  Node.js, Express.js, REST API
 -  MongoDB
+-  styled-components, Semantic UI
 
 Deliverables:
 - A React SPA with user authentication and CRUD that interacts with custom RESTful API 
