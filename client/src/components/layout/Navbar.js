@@ -43,7 +43,7 @@ const Navbar = ({ title, icon }) => {
 
   return (
     <Fragment>
-      <div className='ui secondary menu' style={{ background: '#f1f1f1' }}>
+      <div className='ui secondary menu' style={{ backgroundColor: '#a5cde5' }}>
         <i
           aria-hidden='true'
           className='address book outline white large icon'
