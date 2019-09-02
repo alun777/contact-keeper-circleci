@@ -28,13 +28,13 @@ const App = () => {
           <BrowserRouter>
             <Fragment>
               <Navbar />
-              <div className='container'>
+              <div className='container' style={{ paddingBottom: '10px' }}>
                 <Alerts />
                 <Switch>
                   <PrivateRoute exact path='/home' component={Home} />
                   <Route exact path='/about' component={About} />
-                  <Route exact path={['/register', '/']} component={Register} />
-                  <Route exact path='/login' component={Login} />
+                  <Route exact path='/register' component={Register} />
+                  <Route exact path={['/login', '/']} component={Login} />
                 </Switch>
               </div>
             </Fragment>

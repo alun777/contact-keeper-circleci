@@ -18,7 +18,7 @@ const ContactItem = ({ contact }) => {
   return (
     <div>
       <Card.Group>
-        <Card fluid>
+        <Card fluid style={{ marginBottom: '10px' }}>
           <Card.Content>
             <Card.Header></Card.Header>
             <Label color='blue' image size='large'>

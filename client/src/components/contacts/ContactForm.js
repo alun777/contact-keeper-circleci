@@ -1,5 +1,7 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext, useEffect, Fragment } from 'react';
 import ContactContext from '../../context/contact/contactContext';
+
+import { Form } from 'semantic-ui-react';
 
 const ContactForm = () => {
   const contactContext = useContext(ContactContext);
@@ -46,63 +48,75 @@ const ContactForm = () => {
   };
 
   return (
-    <form onSubmit={onSubmit}>
-      <h2 className='text-primary'>
-        {current ? 'Edit Contact' : 'Add Contact'}
-      </h2>
-      <input
-        type='text'
-        placeholder='Name'
-        name='name'
-        value={name}
-        onChange={onChange}
-      />
-      <input
-        type='email'
-        placeholder='Email'
-        name='email'
-        value={email}
-        onChange={onChange}
-      />
-      <input
-        type='text'
-        placeholder='Phone'
-        name='phone'
-        value={phone}
-        onChange={onChange}
-      />
-      <h5>Contact Type</h5>
-      <input
-        type='radio'
-        name='type'
-        value='personal'
-        checked={type === 'personal'}
-        onChange={onChange}
-      />{' '}
-      Personal{' '}
-      <input
-        type='radio'
-        name='type'
-        value='professional'
-        checked={type === 'professional'}
-        onChange={onChange}
-      />{' '}
-      Professional
-      <div>
-        <input
-          type='submit'
-          value={current ? 'Update Contact' : 'Add Contact'}
-          className='btn btn-primary btn-block'
-        />
-      </div>
-      {current && (
-        <div>
-          <button className='btn btn-light btn-block' onClick={clearAll}>
-            Clear
-          </button>
+    <Fragment>
+      <Form onSubmit={onSubmit}>
+        <h3>{current ? 'Edit Contact' : 'Add Contact'}</h3>
+        <Form.Field>
+          <label>Name</label>
+          <input
+            type='text'
+            placeholder='Name'
+            name='name'
+            value={name}
+            onChange={onChange}
+          />
+        </Form.Field>
+        <Form.Field>
+          <label>Email</label>
+          <input
+            type='email'
+            placeholder='Email'
+            name='email'
+            value={email}
+            onChange={onChange}
+          />
+        </Form.Field>
+        <Form.Field>
+          <label>Phone</label>
+          <input
+            type='text'
+            placeholder='Phone'
+            name='phone'
+            value={phone}
+            onChange={onChange}
+          />
+        </Form.Field>
+
+        <div class='inline '>
+          <label>Contact Type &nbsp;</label>
+          <input
+            type='radio'
+            name='type'
+            value='personal'
+            checked={type === 'personal'}
+            onChange={onChange}
+          />
+          &nbsp; Personal &nbsp;
+          <input
+            type='radio'
+            name='type'
+            value='professional'
+            checked={type === 'professional'}
+            onChange={onChange}
+          />
+          &nbsp; Professional
         </div>
-      )}
-    </form>
+        <button
+          className='ui fluid button blue basic'
+          type='submit'
+          style={{ margin: '20px auto 20px' }}
+        >
+          {current ? 'Update Contact' : 'Add Contact'}
+        </button>
+        {current && (
+          <div>
+            <button className='ui fluid button red basic' onClick={clearAll}>
+              Clear
+            </button>
+          </div>
+        )}
+      </Form>
+    </Fragment>
   );
 };
 

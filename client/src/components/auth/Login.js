@@ -80,7 +80,7 @@ const Login = props => {
         <Button type='submit'>Login</Button>
         <Span>or</Span>
         <Button as={Link} to='/register'>
-          Login
+          Register
         </Button>
       </Form>
     </div>

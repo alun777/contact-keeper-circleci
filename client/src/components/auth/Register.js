@@ -59,7 +59,9 @@ const Register = props => {
 
   return (
     <Div>
-      <Header as='h1'>Account Register</Header>
+      <Header as='h1' textAlign='center'>
+        Account Register
+      </Header>
       <Form onSubmit={onSubmit}>
         <Form.Field>
           <label>Name</label>

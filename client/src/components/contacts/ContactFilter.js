@@ -1,8 +1,6 @@
 import React, { useContext, useRef, useEffect } from 'react';
 import ContactContext from '../../context/contact/contactContext';
 
-import { Input } from 'semantic-ui-react';
-
 const ContactFilter = () => {
   const contactContext = useContext(ContactContext);
   const text = useRef(null);
@@ -16,7 +14,7 @@ const ContactFilter = () => {
   });
 
   const onChange = e => {
-    if (e.target.value !== '') {
+    if (text.current.value !== '') {
       filterContacts(e.target.value);
     } else {
       clearFilter();
@@ -25,15 +23,19 @@ const ContactFilter = () => {
 
   return (
     <form>
-      <Input
-        fluid
-        icon='search'
-        ref={text}
-        type='text'
-        placeholder='Filter Contacts...'
-        onChange={onChange}
-        style={{ marginBottom: '1rem' }}
-      />
+      <div
+        className='ui icon input'
+        style={{ marginBottom: '1rem', width: '100%' }}
+      >
+        <input
+          icon='search'
+          ref={text}
+          type='text'
+          placeholder='Filter Contacts...'
+          onChange={onChange}
+        />
+        <i aria-hidden='true' className='search icon'></i>
+      </div>
     </form>
   );
 };
