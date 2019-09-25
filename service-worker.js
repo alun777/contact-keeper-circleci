@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/contact-keeper-circleci/precache-manifest.bfbc22356a49a020048cef043f74e95f.js"
+  "/contact-keeper-circleci/precache-manifest.b325b8c0147c2e9c280ba9eda703d54e.js"
 );
 
 self.addEventListener('message', (event) => {
