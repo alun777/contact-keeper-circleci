@@ -11,6 +11,9 @@ jobs:
             - '54:a2:90:18:45:ed:37:9f:41:4d:8b:dc:48:da:1e:8f'
 
       - checkout
+      - restore_cache:
+          keys:
+            - dependencies-cache
       - run: echo "A first hello"
       - run: npm -v
       - run:
@@ -19,6 +22,16 @@ jobs:
       - run:
           name: Client Install
           command: npm install --prefix client
+      - save_cache:
+          paths:
+            - node_modules
+          key: dependencies-cache
       - run:
           name: Build
           command: npm run build --prefix client
+      - run:
+          name: Prepare shell commands
+          command: chomd +x scripts/deploy.sh
+      - run:
+          name: Run deploy to Github pages
+          command: ./scripts/deploy.sh
