@@ -1,5 +1,6 @@
 {
   "name": "contact-keeper",
+  "homepage": "https://alun777.github.io/contact-keeper-circleci",
   "version": "1.0.0",
   "description": "Contact keeper app",
   "main": "server.js",
