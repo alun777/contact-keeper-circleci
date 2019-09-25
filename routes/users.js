@@ -35,6 +35,7 @@ router.post(
       if (user) {
         return res.status(400).json({ message: 'User already exists' });
       }
+
       user = new User({
         name,
         email,
@@ -57,7 +58,7 @@ router.post(
         payload,
         config.get('jwtSecret'),
         {
-          expiresIn: 36000
+          expiresIn: 3600
         },
         (err, token) => {
           if (err) throw err;
