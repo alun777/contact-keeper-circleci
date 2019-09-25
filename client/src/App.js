@@ -25,7 +25,7 @@ const App = () => {
     <AuthState>
       <ContactState>
         <AlertState>
-          <BrowserRouter>
+          <BrowserRouter basename='/contact-keeper-circleci'>
             <Fragment>
               <Navbar />
               <div className='container' style={{ paddingBottom: '10px' }}>
