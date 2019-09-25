@@ -3,6 +3,22 @@ jobs:
   build:
     docker:
       - image: circleci/node:10
+    branches:
+      only: master
     steps:
+      - add_ssh_keys:
+          fingerprints:
+            - '54:a2:90:18:45:ed:37:9f:41:4d:8b:dc:48:da:1e:8f'
+
+      - checkout
       - run: echo "A first hello"
       - run: npm -v
+      - run:
+          name: Server Install
+          command: npm install
+      - run:
+          name: Client Install
+          command: npm install --prefix client
+      - run:
+          name: Build
+          command: npm run build --prefix client
